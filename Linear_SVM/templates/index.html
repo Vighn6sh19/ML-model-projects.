@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banknote Detection using Linear SVM</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #cccccc;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #174ea6;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Banknote Authentication</h2>
+        <p>Linear SVM Classification</p>
+
+        <form method="POST">
+            <input type="number" step="any"
+                name="variance" placeholder="Variance"
+                required>
+
+            <input type="number" step="any"
+                name="skewness" placeholder="Skewness"
+                required>
+
+            <input type="number" step="any"
+                name="curtosis" placeholder="Curtosis"
+                required>
+
+            <input type="number" step="any"
+                name="entropy" placeholder="Entropy"
+                required>
+
+            <button type="submit">Predict Banknote</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                Prediction: {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
